@@ -1,0 +1,72 @@
+# operator: and
+# args:
+#   - operator: eq
+#     args:
+#       - ref: user_attributes.gender
+#       - literal: Cis Male
+#   - operator: gte
+#     args:
+#       - ref: user_attributes.age
+#       - literal: 20
+#   - operator: lt
+#     args:
+#       - ref: user_attributes.age
+#       - literal: 30
+
+# operator: or
+# args:
+#   - operator: and
+#     args:
+#       - operator: eq
+#         args:
+#           - ref: user_attributes.gender
+#           - literal: Cis Male
+#       - operator: gte
+#         args:
+#           - ref: user_attributes.age
+#           - literal: 20
+#       - operator: lt
+#         args:
+#           - ref: user_attributes.age
+#           - literal: 30
+#   - operator: and
+#     args:
+#       - operator: eq
+#         args:
+#           - ref: user_attributes.gender
+#           - literal: Cis Female
+#       - operator: gte
+#         args:
+#           - ref: user_attributes.age
+#           - literal: 30
+#       - operator: lt
+#         args:
+#           - ref: user_attributes.age
+#           - literal: 40
+
+# operator: gte
+# args:
+#   - func: count
+#     args:
+#       - ref: date_of_births
+#   - literal: 2
+
+# func: has
+# args:
+#   - ref: hobbies
+#   - literal: スポーツ
+
+# operator: gte
+# args:
+#   - func: count
+#     args:
+#       - ref: bank
+#   - literal: 2
+
+func: has
+args:
+  - func: select
+    args:
+      - ref: bank
+      - literal: name
+  - literal: MIZUHO
